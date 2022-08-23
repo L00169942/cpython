@@ -1,4 +1,4 @@
-name: Create SBOM 1 2
+name: Create SBOM New
 on:
   push:
   pull_request:
