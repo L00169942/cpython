@@ -33,6 +33,11 @@ jobs:
 
       - name: Step 1 - Create a temporary artifact downloads folder
         run: mkdir downloads    
+      - name: Generate requirements
+        run: |
+          cd downloads
+          pip freeze > requirements.txt
+          cd ..          
       - name: Generate SBOM
         run: |
           cd downloads
