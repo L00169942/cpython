@@ -32,10 +32,10 @@ jobs:
           pip install cyclonedx-bom
 
         
-      - name: Generate requirements
-        run: |
-          pip freeze > requirements.txt
-          dir
+#       - name: Generate requirements
+#         run: |
+#           pip freeze > requirements.txt
+#           dir
       - name: Step 1 - Create a temporary artifact downloads folder
         run: mkdir downloads    
       - name: Generate SBOM
