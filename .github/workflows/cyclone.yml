@@ -49,28 +49,33 @@ jobs:
         with: 
           name: assets-for-download
           path: downloads   
-  build:
-    name: Build
-    runs-on: ubuntu-latest
-    steps:
-      - name: Upload Artifact
-        uses: actions/upload-artifact@master
-        with:
-          name: build
-          path: downloads
-  deploy:
-     runs-on: ubuntu-latest
-     steps:
-      - uses: actions/checkout@v2
-      - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@v1
-        with:
-          aws-access-key-id: ${{ secrets.ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.SECRET_ACCESS_KEY }}
-          aws-region: ap-northeast-2
+      - name: Create folder
+        run: |
+          mkdir -p myNewFolder/myNewSubFolder && cp -R dist myNewFolder/myNewSubFolder
+          ls myNewFolder/MyNewSubFolder
+
+#   build:
+#     name: Build
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Upload Artifact
+#         uses: actions/upload-artifact@master
+#         with:
+#           name: build
+#           path: downloads
+#   deploy:
+#      runs-on: ubuntu-latest
+#      steps:
+#       - uses: actions/checkout@v2
+#       - name: Configure AWS credentials
+#         uses: aws-actions/configure-aws-credentials@v1
+#         with:
+#           aws-access-key-id: ${{ secrets.ACCESS_KEY_ID }}
+#           aws-secret-access-key: ${{ secrets.SECRET_ACCESS_KEY }}
+#           aws-region: ap-northeast-2
       
-      - name: Deploy
-        run: aws s3 sync ./ s3://calab2
+#       - name: Deploy
+#         run: aws s3 sync ./ s3://calab2
           
  
           
