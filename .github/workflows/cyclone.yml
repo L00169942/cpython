@@ -39,7 +39,7 @@ jobs:
           cyclonedx-bom -r   
       - name: Scan SBOM
         run: |
-           cve-bin-tool --sbom cyclonedx --sbom-file ./cyclonedx.xml
+           cve-bin-tool cyclonedx.xml
           
           
  
